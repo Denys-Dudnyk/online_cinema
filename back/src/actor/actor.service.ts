@@ -74,7 +74,7 @@ export class ActorService {
 	async delete(id: string) {
 		const deleteDoc = await this.ActorModel.findByIdAndDelete(id).exec()
 
-		if (!deleteDoc) throw new NotFoundException('actors not found')
+		if (!deleteDoc) throw new NotFoundException('Actor not found')
 
 		return deleteDoc
 	}
