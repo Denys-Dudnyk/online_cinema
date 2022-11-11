@@ -33,10 +33,22 @@ export class ActorService {
 
 		//Aggregating
 
-		return this.ActorModel.find(options)
-			.select('-updatedAt -__v')
+		return this.ActorModel.aggregate()
+			.match(options)
+			.lookup({
+				from: 'Movie',
+				foreignField: 'actors',
+				localField: '_id',
+				as: 'movies',
+			})
+			.addFields({
+				countMovies: {
+					$size: '$movies',
+				},
+			})
+			.project({ __v: 0, updatedAt: 0, movies: 0 })
 			.sort({
-				createdAt: 'desc',
+				createdAt: -1,
 			})
 			.exec()
 	}
