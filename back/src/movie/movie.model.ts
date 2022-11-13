@@ -47,6 +47,6 @@ export class MovieModel extends TimeStamps {
 	@prop({ ref: () => ActorModel })
 	actors: Ref<ActorModel>[]
 
-	@prop({ default: false })
-	isSendTelegram?: boolean
+	// @prop({ default: false })
+	// isSendTelegram?: boolean
 }

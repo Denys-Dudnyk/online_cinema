@@ -119,10 +119,11 @@ export class MovieService {
 
 	async update(_id: string, dto: UpdateMovieDto) {
 		/*Telegram notification  */
-		if (!dto.isSendTelegram) {
-			await this.sendNotifications(dto)
-			dto.isSendTelegram = true
-		}
+		// if (!dto.isSendTelegram) {
+		//
+		// 	dto.isSendTelegram = 'true'
+		// }
+		// await this.sendNotifications(dto)
 
 		const updateDoc = await this.MovieModel.findByIdAndUpdate(_id, dto, {
 			new: true,
@@ -143,10 +144,10 @@ export class MovieService {
 
 	async sendNotifications(dto: UpdateMovieDto) {
 		// if (process.env.NODE_ENV !== 'development')
-		// 	await this.telegramService.sendPhoto(dto.poster)
-		await this.telegramService.sendPhoto(
-			'https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-mannowayhome_lob_crd_03.jpg'
-		)
+		await this.telegramService.sendPhoto(dto.poster)
+		// await this.telegramService.sendPhoto(
+		// 	'https://terrigen-cdn-dev.marvel.com/content/prod/1x/spider-mannowayhome_lob_crd_03.jpg'
+		// )
 		// +`${dto.description}\n\n`
 		const msg = `<b>${dto.title}</b>\n\n`
 

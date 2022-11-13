@@ -25,14 +25,14 @@ export class GenreController {
 		return this.genreService.bySlug(slug)
 	}
 
-	@Get('/collections')
-	async getCollections() {
-		return this.genreService.getCollections()
-	}
-
 	@Get()
 	async getAll(@Query('searchTerm') searchTerm?: string) {
 		return this.genreService.getAll(searchTerm)
+	}
+
+	@Get('/collections')
+	async getCollections() {
+		return this.genreService.getCollections()
 	}
 
 	/* Admin */
