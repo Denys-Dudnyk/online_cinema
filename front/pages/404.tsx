@@ -7,7 +7,10 @@ import styles from './Error.module.scss'
 export default function Error404() {
 	return (
 		<Meta title="Page not found">
-			<Heading title="404 - Page not found" className={styles.error} />
+			<div className={styles.block}>
+				<h1>404 - Page not found</h1>
+			</div>
+			{/* <Heading title="404 - Page not found" className={styles.error} /> */}
 		</Meta>
 	)
 }

@@ -1,3 +1,13 @@
-.error {
-	@apply min-h-screen p-layout flex items-center justify-center;
+.block {
+	//width: 100rem;
+	height: 100px;
+	@apply min-h-screen p-layout flex items-center justify-center text-opacity-80 font-semibold;
+	> h1 {
+		font-size: 75px;
+		background-image: url('../text.png');
+		background-position: 0% 0%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
+// @apply min-h-screen p-layout flex items-center justify-center text-white text-opacity-80 font-semibold text-3xl;
