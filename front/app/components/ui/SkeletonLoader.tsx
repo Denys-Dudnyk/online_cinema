@@ -2,7 +2,6 @@ import cn from 'classnames'
 import { FC } from 'react'
 import Skeleton, { SkeletonProps } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { CSSTransition } from 'react-transition-group'
 
 const SkeletonLoader: FC<SkeletonProps> = ({ className, ...rest }) => {
 	return (

@@ -6,6 +6,7 @@ import Layout from '@/components/layout/Layout'
 
 import { store } from '@/store/store'
 
+import HeadProvider from './HeadProvider/HeadProvider'
 import ReduxToast from './ReduxToast'
 
 const queryClient = new QueryClient({
@@ -18,12 +19,14 @@ const queryClient = new QueryClient({
 
 const MainProvider: FC<PropsWithChildren> = ({ children }) => {
 	return (
-		<Provider store={store}>
-			<QueryClientProvider client={queryClient}>
-				<ReduxToast />
-				<Layout>{children}</Layout>
-			</QueryClientProvider>
-		</Provider>
+		<HeadProvider>
+			<Provider store={store}>
+				<QueryClientProvider client={queryClient}>
+					<ReduxToast />
+					<Layout>{children}</Layout>
+				</QueryClientProvider>
+			</Provider>
+		</HeadProvider>
 	)
 }
 
