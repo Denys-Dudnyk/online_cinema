@@ -14,7 +14,7 @@ interface IAuthField {
 const AuthFields: FC<IAuthField> = ({
 	register,
 	formState: { errors },
-	isPasswordRequired,
+	isPasswordRequired = false,
 }) => {
 	return (
 		<>
@@ -32,14 +32,20 @@ const AuthFields: FC<IAuthField> = ({
 			/>
 
 			<Field
-				{...register('password', {
-					required: 'Password is required',
-					minLength: {
-						value: 6,
-						message: 'Please enter a valid password',
-					},
-				})}
+				{...register(
+					'password',
+					isPasswordRequired
+						? {
+								required: 'Password is required',
+								minLength: {
+									value: 6,
+									message: 'Min length must be at least 6 symbols',
+								},
+						  }
+						: {}
+				)}
 				placeholder="Password"
+				type="password"
 				// @ts-ignore
 				error={errors.password}
 			/>

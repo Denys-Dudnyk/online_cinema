@@ -22,7 +22,6 @@ const Home: FC<IHome> = () => {
 			<button onClick={() => toastr.success('Auth', 'You have successfully')}>
 				Show Message
 			</button>
-			<Auth />
 		</Meta>
 	)
 }
