@@ -2,6 +2,8 @@ import { FC, MouseEvent } from 'react'
 
 import { useActions } from '@/hooks/useActions'
 
+import styles from '../Menu.module.scss'
+
 import MaterialIcon from './../../../../ui/MaterialIcon'
 
 const LogoutButton: FC = () => {
@@ -13,7 +15,7 @@ const LogoutButton: FC = () => {
 	}
 	return (
 		<li>
-			<a onClick={handleLogout}>
+			<a onClick={handleLogout} className={styles.hover}>
 				<MaterialIcon name="MdLogout" />
 				<span>Logout</span>
 			</a>
