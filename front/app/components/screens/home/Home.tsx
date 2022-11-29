@@ -5,8 +5,6 @@ import Heading from '@/components/ui/heading/Heading'
 
 import Meta from '@/utils/meta/Meta'
 
-import Auth from '../auth/Auth'
-
 import { IHome } from './home.interface'
 
 const Home: FC<IHome> = () => {

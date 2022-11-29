@@ -3,6 +3,6 @@ import { FC } from 'react'
 import NotAuthFavorites from './NotAuthFavorites'
 
 const FavoriteMovies: FC = () => {
-	return <NotAuthFavorites />
+	return <div>sss</div>
 }
 export default FavoriteMovies

@@ -10,6 +10,15 @@ const AuthItems: FC = () => {
 	const { user } = useAuth()
 	return (
 		<>
+			{user?.isAdmin && (
+				<MenuItem
+					item={{
+						icon: 'MdAdminPanelSettings',
+						link: getAdminHomeUrl(),
+						title: 'Admin Panel',
+					}}
+				/>
+			)}
 			{user ? (
 				<>
 					<MenuItem
@@ -27,16 +36,6 @@ const AuthItems: FC = () => {
 						icon: 'MdLogin',
 						link: '/auth',
 						title: 'Login',
-					}}
-				/>
-			)}
-
-			{user?.isAdmin && (
-				<MenuItem
-					item={{
-						icon: 'MdAdminPanelSettings',
-						link: getAdminHomeUrl(),
-						title: 'Admin Panel',
 					}}
 				/>
 			)}

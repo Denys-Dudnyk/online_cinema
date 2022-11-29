@@ -34,3 +34,21 @@ input [type='file']::-webkit-file-upload-button {
 input:focus {
 	box-shadow: none !important;
 }
+::-webkit-scrollbar {
+	width: 10px; /* ширина для вертикального скролла */
+	height: 10px; /* высота для горизонтального скролла */
+	@apply bg-gray-800;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+	@apply bg-gray-700 transition-colors;
+	// background-color: #e30b13;
+
+	transition: background-color 0.3s ease-in-out;
+
+	border-radius: 9em;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #434349;
+}
