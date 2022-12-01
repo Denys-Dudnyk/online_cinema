@@ -2,7 +2,8 @@ import { FC } from 'react'
 
 import { useAuth } from '@/hooks/useAuth'
 
-import { getAdminHomeUrl } from './../../../../../config/url.config'
+import { getAdminHomeUrl } from '@/config/url.config'
+
 import MenuItem from './../MenuItem'
 import LogoutButton from './LogoutButton'
 
@@ -10,15 +11,6 @@ const AuthItems: FC = () => {
 	const { user } = useAuth()
 	return (
 		<>
-			{user?.isAdmin && (
-				<MenuItem
-					item={{
-						icon: 'MdAdminPanelSettings',
-						link: getAdminHomeUrl(),
-						title: 'Admin Panel',
-					}}
-				/>
-			)}
 			{user ? (
 				<>
 					<MenuItem
@@ -28,6 +20,16 @@ const AuthItems: FC = () => {
 							title: 'Profile',
 						}}
 					/>
+
+					{user.isAdmin && (
+						<MenuItem
+							item={{
+								icon: 'MdAdminPanelSettings',
+								link: getAdminHomeUrl(),
+								title: 'Admin Panel',
+							}}
+						/>
+					)}
 					<LogoutButton />
 				</>
 			) : (

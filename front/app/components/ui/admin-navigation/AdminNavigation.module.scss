@@ -1,0 +1,49 @@
+.nav {
+	@apply air-block w-4/5 mx-auto mb-10;
+
+	> ul {
+		@apply flex justify-evenly items-center;
+
+		> li {
+			@apply inline-block;
+
+			> a {
+				@apply flex  items-center   px-5 py-5 text-xl  relative  text-white text-opacity-60 hover:text-opacity-100;
+
+				> span {
+					@apply ml-2;
+				}
+
+				&::before {
+					@apply absolute w-full h-0.5 bg-transparent transition-colors left-0 bottom-0 rounded-md;
+					content: '';
+				}
+
+				&.active {
+					@apply text-opacity-100;
+
+					> svg {
+						@apply fill-primary;
+					}
+
+					&::before {
+						@apply bg-primary;
+					}
+				}
+			}
+
+			> a {
+				> svg,
+				span {
+					@apply transition-colors;
+				}
+			}
+
+			> a:hover {
+				> svg {
+					@apply fill-primary;
+				}
+			}
+		}
+	}
+}
