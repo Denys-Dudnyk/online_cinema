@@ -8,23 +8,23 @@ import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
 
 import Meta from '@/utils/meta/Meta'
 
-import { useUsers } from './useUsers'
+import { useGenres } from './useGenres'
 
-const UserList: FC = () => {
-	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useUsers()
+const GenreList: FC = () => {
+	const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useGenres()
 
 	return (
-		<Meta title="Users">
+		<Meta title="Genres">
 			<AdminNavigation />
-			<Heading title="Users" />
+			<Heading title="Genres" />
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
 			<AdminTable
 				isLoading={isLoading}
 				removeHandler={deleteAsync}
-				headerItems={['Email', 'Date register']}
+				headerItems={['Name', 'Slug']}
 				tableItems={data || []}
 			/>
 		</Meta>
 	)
 }
-export default UserList
+export default GenreList

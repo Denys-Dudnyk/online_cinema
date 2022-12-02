@@ -11,7 +11,7 @@ const GenreMenu: FC = () => {
 
 	return isLoading ? (
 		<div className="mx-11 mb-6">
-			<SkeletonLoader count={4} className="h-7 mt-6" duration={2} />
+			<SkeletonLoader count={4} className="h-7 mt-6" />
 		</div>
 	) : (
 		<Menu menu={{ title: 'Popular Genres', items: data || [] }} />

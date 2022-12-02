@@ -3,37 +3,35 @@ import { ChangeEvent, useMemo, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { toastr } from 'react-redux-toastr'
 
-import { ITableItem } from '@/components/ui/admin-table/AdminTable/admin-table.interface'
+import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
-import { UserService } from '@/services/user.service'
-
-import { convertMongoDate } from '@/utils/date/convertMongoDate'
+import { ActorService } from '@/services/actor.service'
 
 import { getAdminUrl } from '@/config/url.config'
 
-import { toastError } from './../../../../utils/toast-error'
+import { toastError } from '../../../../utils/toast-error'
 
-export const useUsers = () => {
+export const useActors = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const queryData = useQuery(
-		['Users list', debouncedSearch],
-		() => UserService.getAll(debouncedSearch),
+		['Actors list', debouncedSearch],
+		() => ActorService.getAll(debouncedSearch),
 		{
 			select: ({ data }) =>
 				data.map(
-					(user): ITableItem => ({
-						_id: user._id,
-						editUrl: getAdminUrl(`user/edit/${user._id}`),
-						items: [user.email, convertMongoDate(user.createdAt)],
+					(actor): ITableItem => ({
+						_id: actor._id,
+						editUrl: getAdminUrl(`actor/edit/${actor._id}`),
+						items: [actor.name, String(actor.countMovies)],
 					})
 				),
 			onError: (error) => {
-				toastError(error, 'User list')
+				toastError(error, 'Actor list')
 			},
 		}
 	)
@@ -42,14 +40,14 @@ export const useUsers = () => {
 	}
 
 	const { mutateAsync: deleteAsync } = useMutation(
-		['Delete user'],
-		(userId: string) => UserService.deleteUser(userId),
+		['Delete Actor'],
+		(actorId: string) => ActorService.deleteActor(actorId),
 		{
 			onError: (error) => {
-				toastError(error, 'Delete user')
+				toastError(error, 'Delete actor')
 			},
 			onSuccess: () => {
-				toastr.success('Delete user', 'delete was successful')
+				toastr.success('Delete actor', 'delete was successful')
 				queryData.refetch()
 			},
 		}

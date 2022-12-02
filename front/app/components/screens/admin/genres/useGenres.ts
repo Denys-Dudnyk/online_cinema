@@ -3,37 +3,37 @@ import { ChangeEvent, useMemo, useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 import { toastr } from 'react-redux-toastr'
 
-import { ITableItem } from '@/components/ui/admin-table/AdminTable/admin-table.interface'
+import { ITableItem } from '@/ui/admin-table/AdminTable/admin-table.interface'
 
 import { useDebounce } from '@/hooks/useDebounce'
 
-import { UserService } from '@/services/user.service'
+import { GenreService } from '@/services/genre.service'
 
 import { convertMongoDate } from '@/utils/date/convertMongoDate'
 
 import { getAdminUrl } from '@/config/url.config'
 
-import { toastError } from './../../../../utils/toast-error'
+import { toastError } from '../../../../utils/toast-error'
 
-export const useUsers = () => {
+export const useGenres = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const queryData = useQuery(
-		['Users list', debouncedSearch],
-		() => UserService.getAll(debouncedSearch),
+		['Genres list', debouncedSearch],
+		() => GenreService.getAll(debouncedSearch),
 		{
 			select: ({ data }) =>
 				data.map(
-					(user): ITableItem => ({
-						_id: user._id,
-						editUrl: getAdminUrl(`user/edit/${user._id}`),
-						items: [user.email, convertMongoDate(user.createdAt)],
+					(genre): ITableItem => ({
+						_id: genre._id,
+						editUrl: getAdminUrl(`genre/edit/${genre._id}`),
+						items: [genre.name, genre.slug],
 					})
 				),
 			onError: (error) => {
-				toastError(error, 'User list')
+				toastError(error, 'genre list')
 			},
 		}
 	)
@@ -42,14 +42,14 @@ export const useUsers = () => {
 	}
 
 	const { mutateAsync: deleteAsync } = useMutation(
-		['Delete user'],
-		(userId: string) => UserService.deleteUser(userId),
+		['Delete genre'],
+		(genreId: string) => GenreService.deleteGenre(genreId),
 		{
 			onError: (error) => {
-				toastError(error, 'Delete user')
+				toastError(error, 'Delete genre')
 			},
 			onSuccess: () => {
-				toastr.success('Delete user', 'delete was successful')
+				toastr.success('Delete genre', 'delete was successful')
 				queryData.refetch()
 			},
 		}
