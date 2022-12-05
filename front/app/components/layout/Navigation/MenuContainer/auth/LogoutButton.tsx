@@ -1,10 +1,10 @@
 import { FC, MouseEvent } from 'react'
 
+import MaterialIcon from '@/ui/MaterialIcon'
+
 import { useActions } from '@/hooks/useActions'
 
 import styles from '../Menu.module.scss'
-
-import MaterialIcon from './../../../../ui/MaterialIcon'
 
 const LogoutButton: FC = () => {
 	const { logout } = useActions()

@@ -1,10 +1,9 @@
 import { FC } from 'react'
 
-import AdminNavigation from '@/components/ui/admin-navigation/AdminNavigation'
-import AdminHeader from '@/components/ui/admin-table/AdminHeader/AdminHeader'
-import Heading from '@/components/ui/heading/Heading'
-
+import AdminNavigation from '@/ui/admin-navigation/AdminNavigation'
+import AdminHeader from '@/ui/admin-table/AdminHeader/AdminHeader'
 import AdminTable from '@/ui/admin-table/AdminTable/AdminTable'
+import Heading from '@/ui/heading/Heading'
 
 import Meta from '@/utils/meta/Meta'
 

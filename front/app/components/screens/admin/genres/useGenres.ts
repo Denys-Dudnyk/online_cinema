@@ -9,11 +9,9 @@ import { useDebounce } from '@/hooks/useDebounce'
 
 import { GenreService } from '@/services/genre.service'
 
-import { convertMongoDate } from '@/utils/date/convertMongoDate'
+import { toastError } from '@/utils/toast-error'
 
 import { getAdminUrl } from '@/config/url.config'
-
-import { toastError } from '../../../../utils/toast-error'
 
 export const useGenres = () => {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -21,7 +19,7 @@ export const useGenres = () => {
 	const debouncedSearch = useDebounce(searchTerm, 500)
 
 	const queryData = useQuery(
-		['Genres list', debouncedSearch],
+		['genres admin list', debouncedSearch],
 		() => GenreService.getAll(debouncedSearch),
 		{
 			select: ({ data }) =>
@@ -33,7 +31,7 @@ export const useGenres = () => {
 					})
 				),
 			onError: (error) => {
-				toastError(error, 'genre list')
+				toastError(error, 'Genre list')
 			},
 		}
 	)

@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import { removeTokensStorage } from '@/services/auth/auth.helper'
 import { AuthService } from '@/services/auth/auth.service'
 
-import { API_URL } from '@/config/api.config'
+import { API_URL, APP_SERVER_URL } from '@/config/api.config'
 
 import { getContentType } from './api.helpers'
 

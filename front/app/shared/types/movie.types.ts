@@ -1,13 +1,5 @@
 import { TypeMaterialIconName } from './icon.types'
 
-export interface IGenre {
-	_id: string
-	name: string
-	slug: string
-	description: string
-	icon: TypeMaterialIconName
-}
-
 export interface IParameters {
 	year: number
 	duration: number
@@ -34,4 +26,11 @@ export interface IActor {
 	slug: string
 	photo: string
 	countMovies: number
+}
+export interface IGenre {
+	_id: string
+	name: string
+	slug: string
+	description: string
+	icon: TypeMaterialIconName
 }

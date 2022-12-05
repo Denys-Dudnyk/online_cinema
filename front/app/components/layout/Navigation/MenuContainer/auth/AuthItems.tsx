@@ -21,7 +21,7 @@ const AuthItems: FC = () => {
 						}}
 					/>
 
-					{user.isAdmin && (
+					{user?.isAdmin && (
 						<MenuItem
 							item={{
 								icon: 'MdAdminPanelSettings',
