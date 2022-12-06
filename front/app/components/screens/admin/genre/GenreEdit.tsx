@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic'
 import { FC } from 'react'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { Controller, useForm } from 'react-hook-form'
+import { stripHtml } from 'string-strip-html'
 
 import AdminNavigation from '@/components/ui/admin-navigation/AdminNavigation'
-import TextEditor from '@/components/ui/form-elements/TextEditor'
 import Heading from '@/components/ui/heading/Heading'
 
 import SkeletonLoader from '@/ui/SkeletonLoader'
@@ -16,6 +18,13 @@ import { generateSlug } from '@/utils/string/generateSlug'
 import SlugField from './../../../ui/form-elements/SlugField/SlugField'
 import { IGenreEditInput } from './genre-edit.interface'
 import { useGenreEdit } from './useGenreEdit'
+
+const DynamicTextEditor = dynamic(
+	() => import('@/ui/form-elements/TextEditor'),
+	{
+		ssr: false,
+	}
+)
 
 const GenreEdit: FC = () => {
 	const {
@@ -68,19 +77,32 @@ const GenreEdit: FC = () => {
 								error={errors.icon}
 								style={{ width: '31%' }}
 							/>
-
-							<Controller
-								control={control}
-								name="description"
-								defaultValue=""
-								render={({
-									field: { value, onChange },
-									formState: { errors },
-								}) => {}}
-							/>
-							<TextEditor />
-							<Button>Update</Button>
 						</div>
+						<Controller
+							control={control}
+							name="description"
+							defaultValue=""
+							render={({
+								field: { value, onChange },
+								fieldState: { error },
+							}) => (
+								<DynamicTextEditor
+									onChange={onChange}
+									value={value}
+									error={error}
+									placeholder="Description"
+								/>
+							)}
+							rules={{
+								validate: {
+									required: (v) =>
+										(v && stripHtml(v).result.length > 0) ||
+										'Description is required!',
+								},
+							}}
+						/>
+
+						<Button>Update</Button>
 					</>
 				)}
 			</form>

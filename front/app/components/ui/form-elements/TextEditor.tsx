@@ -52,7 +52,20 @@ const TextEditor: FC<ITextEditor> = ({
 						editorState={editorState}
 						onEditorStateChange={onEditorStateChange}
 						spellCheck
-						// toolbar={{}}
+						toolbar={{
+							options: ['inline', 'list'],
+							inline: {
+								inDropdown: false,
+								className: undefined,
+								component: undefined,
+								dropdownClassName: undefined,
+								options: ['bold', 'italic', 'underline', 'strikethrough'],
+							},
+							list: {
+								inDropdown: false,
+								options: ['unordered', 'ordered'],
+							},
+						}}
 					/>
 				</div>
 
