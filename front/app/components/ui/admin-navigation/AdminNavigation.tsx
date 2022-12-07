@@ -9,7 +9,7 @@ const AdminNavigation: FC = () => {
 		<nav className={styles.nav}>
 			<ul>
 				{navItems.map((item) => (
-					<AdminNavItem item={item} key={item.link} />
+					<AdminNavItem key={item.link} item={item} />
 				))}
 			</ul>
 		</nav>
