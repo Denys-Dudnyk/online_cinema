@@ -5,6 +5,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { stripHtml } from 'string-strip-html'
 
 import AdminNavigation from '@/components/ui/admin-navigation/AdminNavigation'
+import UploadField from '@/components/ui/form-elements/UploadField/UploadField'
 import Heading from '@/components/ui/heading/Heading'
 
 import SkeletonLoader from '@/ui/SkeletonLoader'
@@ -67,21 +68,26 @@ const GenreEdit: FC = () => {
 								}}
 							/>
 
-							{/* <Controller
-							control={control}
-							name="photo"
-							defaultValue=""
-							render={({
-								field: { value, onChange },
-								fieldState: { error },
-							}) => (
-					//photo upload
-							)}
-							rules={{
-									required: 
-										'Photo is required!'
-							}}
-						/> */}
+							<Controller
+								control={control}
+								name="photo"
+								defaultValue=""
+								render={({
+									field: { value, onChange },
+									fieldState: { error },
+								}) => (
+									<UploadField
+										onChange={onChange}
+										value={value}
+										error={error}
+										folder="actors"
+										placeholder="Photo"
+									/>
+								)}
+								rules={{
+									required: 'Photo is required!',
+								}}
+							/>
 						</div>
 						<Button>Update</Button>
 					</>
