@@ -52,3 +52,30 @@ input:focus {
 ::-webkit-scrollbar-thumb:hover {
 	background-color: #434349;
 }
+
+.admin-form {
+	@apply w-1/2 mt-12;
+}
+
+/* Slide animations */
+
+.slide-animation-enter {
+	opacity: 0;
+	transform: scale(0.9);
+}
+
+.slide-animation-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 300ms, transform 300ms;
+}
+
+.slide-animation-exit {
+	opacity: 1;
+}
+
+.slide-animation-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 300ms, transform 300ms;
+}

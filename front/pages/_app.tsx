@@ -4,6 +4,7 @@ import MainProvider from 'providers/MainProvider'
 import { TypeComponentAuthFields } from '@/shared/types/auth.types'
 
 import '@/assets/styles/globals.scss'
+import '@/assets/styles/react-select.scss'
 
 type TypeAppProps = AppProps & TypeComponentAuthFields
 

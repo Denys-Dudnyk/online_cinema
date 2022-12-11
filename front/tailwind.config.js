@@ -131,6 +131,9 @@ module.exports = {
 					objectFit: 'cover',
 					pointerEvents: 'none',
 				},
+				'.rounded-g': {
+					borderRadius: '1.75rem',
+				},
 			})
 		}),
 	],

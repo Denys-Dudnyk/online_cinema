@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic'
 import { FC } from 'react'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { Controller, useForm } from 'react-hook-form'
-import { stripHtml } from 'string-strip-html'
 
 import AdminNavigation from '@/components/ui/admin-navigation/AdminNavigation'
 import UploadField from '@/components/ui/form-elements/UploadField/UploadField'
@@ -21,14 +20,7 @@ import SlugField from '../../../ui/form-elements/SlugField/SlugField'
 import { IActorEditInput } from './actor-edit.interface'
 import { useActorEdit } from './useActorEdit'
 
-const DynamicTextEditor = dynamic(
-	() => import('@/ui/form-elements/TextEditor'),
-	{
-		ssr: false,
-	}
-)
-
-const GenreEdit: FC = () => {
+const ActorEdit: FC = () => {
 	const {
 		handleSubmit,
 		register,
@@ -43,7 +35,7 @@ const GenreEdit: FC = () => {
 	const { isLoading, onSubmit } = useActorEdit(setValue)
 
 	return (
-		<Meta title="Edit actor">
+		<Meta title="Edit Actor">
 			<AdminNavigation />
 			<Heading title="Edit Actor" />
 			<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
@@ -96,4 +88,4 @@ const GenreEdit: FC = () => {
 		</Meta>
 	)
 }
-export default GenreEdit
+export default ActorEdit
