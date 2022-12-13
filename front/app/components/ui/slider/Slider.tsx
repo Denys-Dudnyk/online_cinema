@@ -12,7 +12,7 @@ interface ISlider {
 	buttonTitle?: string
 }
 
-const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
+const Sliderr: FC<ISlider> = ({ slides, buttonTitle }) => {
 	const { handleClick, index, isNext, isPrev, slideIn } = useSlider(
 		slides.length
 	)
@@ -38,4 +38,4 @@ const Slider: FC<ISlider> = ({ slides, buttonTitle }) => {
 		</div>
 	)
 }
-export default Slider
+export default Sliderr

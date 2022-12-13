@@ -8,7 +8,7 @@ import { MovieService } from '@/services/movie.service'
 import MovieList from './MovieList'
 
 const PopularMovies: FC = () => {
-	const { isLoading, data: popularMovies } = useQuery(
+	const { isLoading, data: popularMovies  } = useQuery(
 		['Popular movies in sidebar'],
 		() => MovieService.getMostPopularMovies()
 	)

@@ -1,10 +1,11 @@
 import { getContentType } from 'api/api.helpers'
+import { axiosClassic } from 'api/interceptors'
 import Cookies from 'js-cookie'
 
 import { getAuthUrl } from '@/config/api.config'
 
-import { axiosClassic } from './../../api/interceptors'
-import { IAuthResponse } from './../../store/user/user.interface'
+import { IAuthResponse } from '@/store/user/user.interface'
+
 import { removeTokensStorage, saveToStorage } from './auth.helper'
 
 export const AuthService = {

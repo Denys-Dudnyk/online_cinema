@@ -5,7 +5,7 @@
 	max-width: 1200px;
 
 	.slide {
-		@apply relative h-80 rounded-xl  overflow-hidden shadow-xl flex items-end;
+		@apply relative h-80 rounded-3xl  overflow-hidden shadow-xl flex items-end;
 
 		@include fade-bg-gradient();
 		.image {
