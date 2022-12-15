@@ -1,7 +1,7 @@
 import { axiosClassic } from 'api/interceptors'
 import axios from 'api/interceptors'
 
-import { IMovie } from '@/shared/types/movie.types'
+import { IGenre, IMovie } from '@/shared/types/movie.types'
 
 import { getMoviesUrl } from '@/config/api.config'
 
@@ -16,6 +16,14 @@ export const MovieService = {
 				  }
 				: {},
 		})
+	},
+
+	async getByGenres(genreIds: string[]) {
+		return axiosClassic.post<IMovie[]>(getMoviesUrl('/by-genres'), { genreIds })
+	},
+
+	async getByActor(actorId: string) {
+		return axiosClassic.get<IMovie[]>(getMoviesUrl(`/by-actor/${actorId}`))
 	},
 
 	async getById(_id: string) {
