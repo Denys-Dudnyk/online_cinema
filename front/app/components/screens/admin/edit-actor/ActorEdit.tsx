@@ -10,12 +10,11 @@ import Heading from '@/components/ui/heading/Heading'
 import SkeletonLoader from '@/ui/SkeletonLoader'
 import Button from '@/ui/form-elements/Button'
 import Field from '@/ui/form-elements/Field'
+import SlugField from '@/ui/form-elements/SlugField/SlugField'
 import formStyles from '@/ui/form-elements/admin-form.module.scss'
 
 import Meta from '@/utils/meta/Meta'
 import { generateSlug } from '@/utils/string/generateSlug'
-
-import SlugField from '../../../ui/form-elements/SlugField/SlugField'
 
 import { IActorEditInput } from './actor-edit.interface'
 import { useActorEdit } from './useActorEdit'
