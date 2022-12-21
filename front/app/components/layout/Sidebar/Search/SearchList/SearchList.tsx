@@ -8,13 +8,18 @@ import { getMovieUrl } from '@/config/url.config'
 
 import styles from './SearchList.module.scss'
 
-const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
+interface ISearchList {
+	movies: IMovie[]
+	onClick: () => void
+}
+
+const SearchList: FC<ISearchList> = ({ movies, onClick }) => {
 	return (
 		<div className={styles.list}>
 			{movies.length ? (
 				movies.map((movie) => (
 					<Link href={getMovieUrl(movie.slug)} key={movie._id}>
-						<a>
+						<a onClick={onClick}>
 							<Image
 								src={movie.poster}
 								width={50}

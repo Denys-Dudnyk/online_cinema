@@ -22,5 +22,8 @@ export const useSearch = () => {
 		setSearchTerm(e.target.value)
 	}
 
-	return { isSuccess, handleSearch, data, searchTerm }
+	const clearSearch = () => {
+		setSearchTerm('')
+	}
+	return { isSuccess, handleSearch, data, searchTerm, clearSearch }
 }
