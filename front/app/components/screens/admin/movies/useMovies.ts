@@ -35,7 +35,8 @@ export const useMovies = () => {
 							movie.title,
 							getGenresList(movie.genres),
 							String(movie.rating),
-							movie.slug,
+
+							String(movie.countOpened),
 						],
 					})
 				),

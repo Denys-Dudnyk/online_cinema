@@ -2,6 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
+import { useRateMovie } from '@/components/screens/single-movie/RateMovie/useRateMovie'
+
 import MaterialIcon from '@/ui/MaterialIcon'
 
 import { IMovie } from '@/shared/types/movie.types'
@@ -12,7 +14,14 @@ import { getGenreUrl, getMovieUrl } from '@/config/url.config'
 
 import styles from './MovieList.module.scss'
 
-const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
+interface IRateMovie {
+	movieId: string
+	slug: string
+	movie: IMovie
+}
+
+const MovieItem: FC<IRateMovie> = ({ movie, movieId, slug }) => {
+	const { rating } = useRateMovie(movieId, slug)
 	return (
 		<div className={styles.item}>
 			<Link href={getMovieUrl(movie.slug)}>
@@ -41,7 +50,7 @@ const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
 
 				<div className={styles.rating}>
 					<MaterialIcon name="MdStarRate" />
-					<span>{movie.rating.toFixed(1)}</span>
+					<span>{rating.toFixed(1)}</span>
 				</div>
 			</div>
 		</div>

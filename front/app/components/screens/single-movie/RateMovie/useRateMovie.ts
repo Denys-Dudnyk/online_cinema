@@ -43,7 +43,6 @@ export const useRateMovie = (movieId: string, slug: string) => {
 
 				setIsSended(true)
 				refetch()
-				push(getMovieUrl(`/${slug}`))
 
 				setTimeout(() => {
 					setIsSended(false)

@@ -10,7 +10,7 @@
 	}
 
 	.item {
-		@apply mb-4 flex items-stretch;
+		@apply mb-4 flex items-stretch animate-scaleIn;
 
 		> a {
 			img {

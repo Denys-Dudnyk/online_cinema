@@ -47,7 +47,7 @@ export const useVideo = () => {
 			videoRef.current.currentTime -= 10
 		}
 	}
-
+	/* change volume */
 	const changeVolume = (e: ChangeEvent<HTMLInputElement>) => {
 		const video = videoRef.current
 		if (!video) return
@@ -55,7 +55,7 @@ export const useVideo = () => {
 		video.volume = +e.currentTarget.value / 100
 		setVolume(+e.currentTarget.value / 100)
 	}
-
+	/* mute volume */
 	const muteVolume = useCallback(() => {
 		const video = videoRef.current
 
@@ -69,6 +69,7 @@ export const useVideo = () => {
 			setVolume(1)
 		}
 	}, [volume])
+
 	/* fullscreen */
 	const fullscreen = () => {
 		const video = videoRef.current
@@ -123,6 +124,9 @@ export const useVideo = () => {
 				}
 				case 'f':
 					fullscreen()
+					break
+				case 'm':
+					muteVolume()
 					break
 
 				default:

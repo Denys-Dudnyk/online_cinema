@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useLayoutEffect, useRef } from 'react'
 import StarRating from 'react-star-rating-component'
 
 import AuthButton from '@/ui/video-player/AuthPlaceholder/AuthButton'

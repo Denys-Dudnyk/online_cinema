@@ -10,7 +10,12 @@ const MovieList: FC<IMovieList> = ({ link, title, movies }) => {
 		<div className={styles.list}>
 			<div className={styles.heading}>{title}</div>
 			{movies.slice(0, 3).map((movie) => (
-				<MovieItem key={movie._id} movie={movie} />
+				<MovieItem
+					key={movie._id}
+					movie={movie}
+					movieId={movie._id}
+					slug={movie.slug}
+				/>
 			))}
 			<Link href={link}>
 				<a className={styles.button}>See more</a>

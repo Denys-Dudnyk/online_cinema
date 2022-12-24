@@ -10,6 +10,7 @@ import Meta from '@/utils/meta/Meta'
 import { IMoviePage } from '../../../../pages/movie/[slug]'
 
 import Content from './Content/Content'
+import FavoriteButton from './FavoriteButton/FavoriteButton'
 import { useUpdateCountOpened } from './useUpdateCountOpened'
 
 const DynamicPlayer = dynamic(() => import('@/ui/video-player/VideoPlayer'), {
@@ -27,7 +28,9 @@ const SingleMovie: FC<IMoviePage> = ({ movie, similarMovies }) => {
 		<Meta title={movie.title} description={`Watch ${movie.title}`}>
 			<Banner
 				image={movie.bigPoster}
-				Detail={() => <Content movie={movie} />}
+				Detail={() => (
+					<Content movie={movie} movieId={movie._id} slug={movie.slug} />
+				)}
 			/>
 
 			{/* Video Player */}

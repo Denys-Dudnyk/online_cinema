@@ -1,15 +1,26 @@
 import { FC } from 'react'
 
+import { useRateMovie } from '@/components/screens/single-movie/RateMovie/useRateMovie'
+
 import MaterialIcon from '@/ui/MaterialIcon'
 
 import { IMovie } from '@/shared/types/movie.types'
 
 import { getActorUrl, getGenreUrl } from '@/config/url.config'
 
+import FavoriteButton from '../FavoriteButton/FavoriteButton'
+
 import styles from './Content.module.scss'
 import ContentList from './ContentList/ContentList'
 
-const Content: FC<{ movie: IMovie }> = ({ movie }) => {
+interface IRateMovie {
+	movie: IMovie
+	movieId: string
+	slug: string
+}
+
+const Content: FC<IRateMovie> = ({ movie, movieId, slug }) => {
+	const { rating } = useRateMovie(movieId, slug)
 	return (
 		<div className={styles.content}>
 			<h1>{movie.title}</h1>
@@ -38,9 +49,12 @@ const Content: FC<{ movie: IMovie }> = ({ movie }) => {
 
 			<div className={styles.rating}>
 				<MaterialIcon name="MdStarRate" />
-				<span>{movie.rating.toFixed(1)}</span>
+				<span>{rating.toFixed(1)}</span>
 			</div>
+
 			{/* Favorite button */}
+
+			<FavoriteButton movieId={movie._id} />
 		</div>
 	)
 }

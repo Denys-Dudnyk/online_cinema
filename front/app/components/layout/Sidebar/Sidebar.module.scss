@@ -1,3 +1,6 @@
 .sidebar {
 	@apply p-layout;
+	//overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
