@@ -50,7 +50,7 @@ const MovieItem: FC<IRateMovie> = ({ movie, movieId, slug }) => {
 
 				<div className={styles.rating}>
 					<MaterialIcon name="MdStarRate" />
-					<span>{rating.toFixed(1)}</span>
+					<span>{movie.rating.toFixed(1)}</span>
 				</div>
 			</div>
 		</div>

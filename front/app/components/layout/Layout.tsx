@@ -12,8 +12,8 @@ const DynamicComponentWithNoSSR = dynamic(() => import('@/ui/snow/Snowfalls'), {
 const Layout: FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<>
-			{' '}
-			<DynamicComponentWithNoSSR />
+			{/* {' '} */}
+			{/* <DynamicComponentWithNoSSR /> */}
 			<div className={styles.layout}>
 				<Navigation />
 				<div className={styles.center}>{children}</div>

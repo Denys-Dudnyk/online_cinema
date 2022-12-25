@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: TypeAppProps) {
 	return (
 		<MainProvider Component={Component}>
 			<>
-				{/* <DynamicComponentWithNoSSR /> */}
+				<DynamicComponentWithNoSSR />
 				<Component {...pageProps} />
 			</>
 		</MainProvider>

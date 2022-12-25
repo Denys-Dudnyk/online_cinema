@@ -11,7 +11,7 @@ import Error404 from '../404'
 
 interface IGenrePage {
 	movies: IMovie[]
-	genre: IGenre | undefined
+	genre: IGenre
 }
 
 const GenrePage: NextPage<IGenrePage> = ({ movies, genre }) => {
@@ -28,6 +28,7 @@ const GenrePage: NextPage<IGenrePage> = ({ movies, genre }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	try {
+		const moviess = await MovieService.getMostPopularMovies()
 		const { data: genre } = await GenreService.getBySlug(String(params?.slug))
 
 		const { data: movies } = await MovieService.getByGenres([genre._id])
@@ -36,6 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			props: {
 				movies,
 				genre,
+				moviess,
 			},
 		}
 	} catch (error) {
