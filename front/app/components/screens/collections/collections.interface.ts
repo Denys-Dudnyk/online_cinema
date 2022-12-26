@@ -5,5 +5,4 @@ export interface ICollection {
 	image: string
 	title: string
 	slug: string
-	moviess: IMovie[]
 }
