@@ -43,7 +43,4 @@ export class UpdateMovieDto {
 	@IsArray()
 	@IsString({ each: true })
 	actors: string[]
-
-	// @IsBoolean()
-	// isSendTelegram?: boolean
 }

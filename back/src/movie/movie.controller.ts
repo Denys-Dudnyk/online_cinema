@@ -21,11 +21,6 @@ import { UpdateMovieDto } from './update-movie.dto'
 export class MovieController {
 	constructor(private readonly movieService: MovieService) {}
 
-	@Get()
-	async getAll(@Query('searchTerm') searchTerm?: string) {
-		return this.movieService.getAll(searchTerm)
-	}
-
 	@Get('by-slug/:slug')
 	async bySlug(@Param('slug') slug: string) {
 		return this.movieService.bySlug(slug)
@@ -40,6 +35,11 @@ export class MovieController {
 	@HttpCode(200)
 	async byGenres(@Body('genreIds') genreIds: Types.ObjectId[]) {
 		return this.movieService.byGenres(genreIds)
+	}
+
+	@Get()
+	async getAll(@Query('searchTerm') searchTerm?: string) {
+		return this.movieService.getAll(searchTerm)
 	}
 
 	@Get('most-popular')

@@ -6,6 +6,7 @@ import { GenreModel } from './genre.model'
 import { GenreService } from './genre.service'
 
 @Module({
+	controllers: [GenreController],
 	imports: [
 		TypegooseModule.forFeature([
 			{
@@ -15,9 +16,8 @@ import { GenreService } from './genre.service'
 				},
 			},
 		]),
-		MovieModule
+		MovieModule,
 	],
-	controllers: [GenreController],
 	providers: [GenreService],
 })
 export class GenreModule {}

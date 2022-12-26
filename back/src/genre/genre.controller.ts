@@ -4,6 +4,7 @@ import {
 	Delete,
 	Get,
 	HttpCode,
+	Injectable,
 	Param,
 	Post,
 	Put,
@@ -28,6 +29,10 @@ export class GenreController {
 	@Get()
 	async getAll(@Query('searchTerm') searchTerm?: string) {
 		return this.genreService.getAll(searchTerm)
+	}
+	@Get('/popular')
+	async getPopular() {
+		return this.genreService.getPopular()
 	}
 
 	@Get('/collections')

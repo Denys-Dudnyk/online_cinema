@@ -23,14 +23,14 @@ export class MovieModel extends TimeStamps {
 	@prop()
 	bigPoster: string
 
-	@prop()
+	@prop({ unique: true })
 	title: string
 
 	@prop({ unique: true })
 	slug: string
 
 	@prop()
-	parameters?: Parameters
+	parameters: Parameters
 
 	@prop({ default: 4.0 })
 	rating?: number

@@ -6,6 +6,7 @@ import { MovieModel } from './movie.model'
 import { TelegramModule } from './../telegram/telegram.module'
 
 @Module({
+	controllers: [MovieController],
 	imports: [
 		TypegooseModule.forFeature([
 			{
@@ -17,7 +18,6 @@ import { TelegramModule } from './../telegram/telegram.module'
 		]),
 		TelegramModule,
 	],
-	controllers: [MovieController],
 	providers: [MovieService],
 	exports: [MovieService],
 })
