@@ -77,7 +77,9 @@ then
 ## Screenshots 
 https://s9.gifyu.com/images/cinemaGif.gif
 
-![App Screenshot](https://s9.gifyu.com/images/cinemaGif.md.gif)
-
 ![Screenshot_1](https://user-images.githubusercontent.com/83369962/209805439-0792079b-606c-46f4-8fe4-e6b1bc38810a.png)
+
+![Screenshot_2](https://user-images.githubusercontent.com/83369962/209805552-a9964901-c944-44ba-b080-0798f96cfb04.png)
+
+![Screenshot_3](https://user-images.githubusercontent.com/83369962/209805697-5076621e-f000-4a70-9869-626a37e1deb6.png)
 
