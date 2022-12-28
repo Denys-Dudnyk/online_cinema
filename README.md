@@ -79,3 +79,5 @@ https://s9.gifyu.com/images/cinemaGif.gif
 
 ![App Screenshot](https://s9.gifyu.com/images/cinemaGif.md.gif)
 
+![Screenshot_1](https://user-images.githubusercontent.com/83369962/209805439-0792079b-606c-46f4-8fe4-e6b1bc38810a.png)
+
