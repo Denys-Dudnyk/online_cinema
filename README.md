@@ -1,4 +1,4 @@
-# Streaming music app
+# Cinema App
 
 Fullstack cinema app based on NextJS and NestJS , MongoDB ,Redux-Toolkit and TailwindCSS
 
