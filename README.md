@@ -75,4 +75,4 @@ then
 ```
 
 ## Screenshots 
-![App Screenshot](https://gifyu.com/image/SvSX6)
+![App Screenshot](https://s9.gifyu.com/images/cinemaGif.gif)
