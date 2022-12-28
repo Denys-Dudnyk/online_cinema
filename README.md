@@ -74,5 +74,5 @@ then
   yarn start
 ```
 
-## Screenshots
-
+## Screenshots 
+![App Screenshot](https://gifyu.com/image/SvSX6)
