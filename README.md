@@ -30,8 +30,8 @@ Fullstack cinema app based on NextJS and NestJS , MongoDB ,Redux-Toolkit and Tai
 
 2. Update the .env files in the front & back
 ```bash
-cp front/.env.example .env
-cp back/.env.example .env
+  cp front/.env.example .env
+  cp back/.env.example .env
 ```
 
 ## Environment Variables
