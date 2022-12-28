@@ -75,6 +75,6 @@ then
 ```
 
 ## Screenshots 
-https://s9.gifyu.com/images/cinemaGif.gif
+'https://s9.gifyu.com/images/cinemaGif.gif'
 ![App Screenshot](https://s9.gifyu.com/images/cinemaGif.md.gif)
 
